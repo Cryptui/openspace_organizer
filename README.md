@@ -3,12 +3,11 @@ BeCode_Challenge_1
 
 ## Description
 Your company moved to a new office at the Gent Zuiderport. Its an openspace with 6 tables of 4 seats. 
-As many of you are new colleagues, you come up with the idea of changing seats everyday and get to know each other better by working side by side with your new colleagues.
+As many of you are new colleagues, you come up with the idea of changing seats every day and get to know each other better by working side by side with your new colleagues.
 
-You will create a program that runs everyday to re-assign everybody to a new seat.
+You will create a program that runs every day to re-assign everybody to a new seat.
 
-
-# Installation
+## Installation
 
 ## Usage
 
@@ -17,15 +16,18 @@ You will create a program that runs everyday to re-assign everybody to a new sea
 ## Contributors
 
 ## Timeline
-This cproject was created in two days. 
+This project was created in two days. 
 
 ## Personal situation
 My first solo project @ BeCode 
 
-
 ### Mission objectives
 
-Create an algorithm that randomly assign people to a spot in the openspace.
+Create an algorithm that randomly assign people to a spot in the open space.
+In an open space with 6 tables of 4 seats. come up with the idea of changing seats every day and get to know each other better by working side by side with your new colleagues.
+Create a program that runs every day to re-assign everybody to a new seat.
+You want to build a program that allows you to get a list of colleagues from an excel file and place them randomly on the different tables of the open space.
+
 
 ### Learning Objectives
 
@@ -42,10 +44,10 @@ Create an algorithm that randomly assign people to a spot in the openspace.
 
 ## The Mission
 
-Your company moved to a new office at the Gent Zuiderport. Its an openspace with 6 tables of 4 seats. 
-As many of you are new colleagues, you come up with the idea of changing seats everyday and get to know each other better by working side by side with your new colleagues.
+Your company moved to a new office at the Gent Zuiderport. It’s an open space with 6 tables of 4 seats. 
+As many of you are new colleagues, you come up with the idea of changing seats every day and get to know each other better by working side by side with your new colleagues.
 
-You will create a program that runs everyday to re-assign everybody to a new seat. 
+You will create a program that runs every day to re-assign everybody to a new seat. 
 
 ### Must-have features: MVP (Minimum Viable Product)
 
@@ -53,7 +55,7 @@ You want to build a program that allows you to get a list of colleagues from an 
 
 #### Note: The default setup of the open space is 6 tables of 4 seats → 24 seats. ####
 
-- The program can take a filepath as an argument to load the list of colleagues. 
+- The program can take a file path as an argument to load the list of colleagues. 
 - The program distributes randomly the people on the existing tables and says how much seats are left.
 - The program can deal with the possibility of having to much people in the room.
 
@@ -62,14 +64,10 @@ You want to build a program that allows you to get a list of colleagues from an 
 Now you have a basic working program but you want to make it more interactive and more configurable.
 
 - Allow the possibility to define the room setup from a config.json file. Allow the possibility to change dynamically the setup and re-run the program.
-- Make the program more dynamic and interactive by adding the possibilty to add someone in the room (a new colleague arriving or someone being late) and the possibilty to add a table if the room is full.
+- Make the program more dynamic and interactive by adding the possibility to add someone in the room (a new colleague arriving or someone being late) and the possibility to add a table if the room is full.
 - Improve the algorithm to avoid having someone alone at a table
 - Allow the possibility of which list (or black list) in the excel file → _X wants to be seated beside Y_ or _X doesn't want to be seated beside Y_
 - Allow the possibility to ask : 
   - how much seats are in the room
   - how much people are in the room
   - how much seats are left
-
-
-### Constraints
-As you well know, having readable and clean code is a great added value to any project. Follow the best practices below:
