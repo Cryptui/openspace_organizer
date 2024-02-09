@@ -1,5 +1,7 @@
 from utils.openspace import Openspace # Import Openspace class for managing seating arrangements
 from utils.file_utils import load_colleagues_from_csv  # Import load_colleagues_from_csv for loading colleagues' names from a CSV file
+from utils.table import Table #Import the Table class
+
 def main():
     # Load colleagues from CSV file
     colleagues = load_colleagues_from_csv("new_colleagues.csv")  # Change file extension
