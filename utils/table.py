@@ -61,8 +61,7 @@ class Table:
         seats (list): A list of Seat objects representing the seats at the table.
     """
 
-    def __init__(self, capacity: None):
-        if capacity is not None:
+    def __init__(self, capacity: int):
         # initialize the Table with a given capacity
         self.capacity: int = capacity 
 
@@ -100,27 +99,3 @@ class Table:
                 seat.set_occupant(name)
                 return True  # Return True to indicate that the seat has been assigned
         return False  # Return False if all seats are occupied
-    
-    # Define number of seats in a spaces
-        
-    def get_number_of_tables():
-        while True:
-            try:
-                number_of_tables = int(input("How many tables are there in your open space? "))
-                if number_of_tables <= 0:
-                    print("Number of tables must be greater than 0.")
-                else:
-                    return number_of_tables
-            except ValueError:
-                print("Please enter a valid number for the number of tables.")
-
-    def get_table_capacity():
-        while True:
-            try:
-                table_capacity = int(input("How many seats per table are possible? "))
-                if table_capacity <= 0:
-                    print("Table capacity must be greater than 0.")
-                else:
-                    return table_capacity
-            except ValueError:
-                print("Please enter a valid number for the table capacity.")
