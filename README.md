@@ -7,13 +7,20 @@ As many of you are new colleagues, you come up with the idea of changing seats e
 
 You will create a program that runs every day to re-assign everybody to a new seat.
 
-## Installation
-
 ## Usage
+
+
+1. Open Visual Studio Code
+2. Select file > open folder > "01-openspace-organizer" > click Select Folder
+3. Locate the `main.py` file.
+3. Run `main.py` by double-clicking it or using the command `python main.py` in your terminal or command prompt.
+4. Follow the on-screen instructions to view the seating arrangement for the day.
+5. Optionally, you can modify the seating arrangement logic or customize the program to suit your needs.
 
 ## Visuals
 
 ## Contributors
+BeCode class 
 
 ## Timeline
 This project was created in two days. 
