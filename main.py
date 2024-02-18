@@ -1,23 +1,56 @@
-#Nice 2 have test 
+#Nice 2 have  
 
-from utils.openspace import Openspace # Import Openspace class for managing seating arrangements
-from utils.file_utils import load_colleagues_from_csv  # Import load_colleagues_from_csv for loading colleagues' names from a CSV file
+from utils.openspace import Openspace 
+from utils.file_utils import load_colleagues_from_csv  
+
 def main():
     # Load colleagues from CSV file
     colleagues = load_colleagues_from_csv("new_colleagues.csv")  # Change file extension
 
-    # Default setup of the open space
-    number_of_tables = 6
-    table_capacity = 4
+    # Ask the user for the number of tables
+    number_of_tables = int(input("How many tables are there in the room? "))
 
-    # Initialize openspace
-    openspace = Openspace(number_of_tables, table_capacity)
+    # Ask the user for the table capacity
+    table_capacity = int(input("How many chairs could be at each table? "))
 
-    # Organize colleagues randomly and assign seats
-    openspace.organize(colleagues)
+    # Calculate the total capacity of the room
+    total_capacity = number_of_tables * table_capacity
 
-    # Display the seating arrangement
-    openspace.display()
+    # Check if the total capacity is enough to accommodate all colleagues
+    if len(colleagues) > total_capacity:
+        print("The room capacity is not enough to accommodate all colleagues.")
+        print("The following colleagues cannot be seated:")
+        remaining_colleagues = colleagues[total_capacity:]
+        for colleague in remaining_colleagues:
+            print(colleague)
+    else:
+        # Initialize openspace
+        openspace = Openspace(number_of_tables, table_capacity)
+
+        # Organize colleagues randomly and assign seats
+        openspace.organize(colleagues)
+
+        # Display the seating arrangement
+        print("Seating arrangement:")
+        openspace.display()
+
+        # Store the seating arrangement in an Excel file (overwrite existing file)
+        openspace.store_seat_arrangement("seating_arrangement.xlsx")
+
+        # Print the names of colleagues who are seated
+        print("\nColleagues who are seated:")
+        seated_colleagues = colleagues[:total_capacity]
+        for colleague in seated_colleagues:
+            print(colleague)
+    
+        # Check if there are empty seats
+        empty_seats = total_capacity - len(colleagues)
+        if empty_seats > 0:
+            print("\nEmpty seats:")
+            for i in range(total_capacity - empty_seats, total_capacity):
+                table_index = i // table_capacity
+                seat_index = i % table_capacity
+                print(f"Table {table_index + 1}: Seat {seat_index + 1}")
 
 if __name__ == "__main__":
     main()

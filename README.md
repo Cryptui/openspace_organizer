@@ -9,7 +9,6 @@ You will create a program that runs every day to re-assign everybody to a new se
 
 ## Usage
 
-
 1. Open Visual Studio Code
 2. Select file > open folder > "01-openspace-organizer" > click Select Folder
 3. Locate the `main.py` file.
@@ -17,7 +16,8 @@ You will create a program that runs every day to re-assign everybody to a new se
 4. Follow the on-screen instructions to view the seating arrangement for the day.
 5. Optionally, you can modify the seating arrangement logic or customize the program to suit your needs.
 
-## Visuals
+## Run
+open openspace_irganizer  > select main.py > click on Run Python file
 
 ## Contributors
 BeCode class 
