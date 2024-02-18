@@ -19,11 +19,7 @@ def main():
     # Check if the total capacity is enough to accommodate all colleagues
     if len(colleagues) > total_capacity:
         print("The room capacity is not enough to accommodate all colleagues.")
-        print("The following colleagues cannot be seated:")
-        remaining_colleagues = colleagues[total_capacity:]
-        for colleague in remaining_colleagues:
-            print(colleague)
-    else:
+
         # Initialize openspace
         openspace = Openspace(number_of_tables, table_capacity)
 
@@ -34,8 +30,24 @@ def main():
         print("Seating arrangement:")
         openspace.display()
 
+        print("The following colleagues cannot be seated:")
+        remaining_colleagues = colleagues[total_capacity:]
+        for colleague in remaining_colleagues:
+            print(colleague)
+        
         # Store the seating arrangement in an Excel file (overwrite existing file)
-        openspace.store_seat_arrangement("seating_arrangement.xlsx")
+        openspace.store_seat_arrangement("seating_arrangement.xlsx", remaining_colleagues)
+
+    else:
+        # Initialize openspace
+        openspace = Openspace(number_of_tables, table_capacity)
+
+        # Organize colleagues randomly and assign seats
+        openspace.organize(colleagues)
+
+        # Display the seating arrangement
+        print("Seating arrangement:")
+        openspace.display()
 
         # Print the names of colleagues who are seated
         print("\nColleagues who are seated:")
@@ -51,6 +63,9 @@ def main():
                 table_index = i // table_capacity
                 seat_index = i % table_capacity
                 print(f"Table {table_index + 1}: Seat {seat_index + 1}")
+        
+        # Store the seating arrangement in an Excel file (overwrite existing file)
+        openspace.store_seat_arrangement("seating_arrangement.xlsx")
 
 if __name__ == "__main__":
     main()

@@ -4,11 +4,10 @@ from .table import Table
 import openpyxl
 
 class Openspace:
-
     """
     A class to represent an open space.
-
     """
+
     def __init__(self, number_of_tables: int, table_capacity: int):
         """
         Initializes an Openspace object with the given number of tables and table capacity.
@@ -16,7 +15,6 @@ class Openspace:
             number_of_tables (int): The number of tables in the openspace.
             table_capacity (int): The maximum number of seats per table.
         """
- 
         self.tables: List[Table] = [Table(table_capacity) for _ in range(number_of_tables)]
         self.number_of_tables: int = number_of_tables
 
@@ -57,22 +55,17 @@ class Openspace:
 
     def display(self):
         """Displays the seating arrangement in a readable format."""
-
         for i, table in enumerate(self.tables):
             print(f"Table {i+1}: ")
             for j, seat in enumerate(table.seat):
                 print(f"\tSeat {j+1}: {'Empty' if seat.free else seat.occupant}")
 
-
-    def store_seat_arrangement(self, filename: str):
+    def store_seat_arrangement(self, filename: str, remaining_colleagues: List[str] = None):
         """
         Stores the seating arrangement in an Excel file.
+        If there are remaining colleagues who cannot be seated, include their names in the Excel file.
         """
         try:
-            # Add ".xlsx" extension if missing
-            if not filename.endswith(".xlsx"):
-                filename += ".xlsx"
-
             wb = openpyxl.Workbook()
             sheet = wb.active
             sheet.title = "Seating Arrangement"
@@ -82,6 +75,13 @@ class Openspace:
                     sheet.cell(row=i * len(table.seat) + j + 1, column=1, value=f"Table {i + 1}")
                     sheet.cell(row=i * len(table.seat) + j + 1, column=2, value=f"Seat {j + 1}")
                     sheet.cell(row=i * len(table.seat) + j + 1, column=3, value=seat.occupant if not seat.free else "Empty")
+
+            # If there are remaining colleagues, include their names in the Excel file
+            if remaining_colleagues:
+                row_offset = len(self.tables) * len(self.tables[0].seat) + 2  # Start after the seating arrangement
+                sheet.cell(row=row_offset, column=1, value="Remaining Colleagues:")
+                for idx, colleague in enumerate(remaining_colleagues, start=1):
+                    sheet.cell(row=row_offset + idx, column=1, value=colleague)
 
             wb.save(filename)
             print(f"Seating arrangement saved to {filename} successfully.")
